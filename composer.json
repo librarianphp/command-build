@@ -1,0 +1,30 @@
+{
+    "name": "librarianphp/command-help",
+    "type": "library",
+    "description": "Librarian's built-in help command",
+    "license": "MIT",
+    "homepage": "https://github.com/librarianphp/command-demo",
+    "keywords": ["cli","command-line", "markdown"],
+    "autoload": {
+        "psr-4": {
+            "librarianphp\\": "Command/"
+        }
+    },
+    "require": {
+        "minicli/minicli": "^3.2"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.4",
+        "friendsofphp/php-cs-fixer": "^3.16"
+    },
+    "scripts": {
+        "test" : ["pest"],
+        "csfix": ["php-cs-fixer fix"]
+    },
+
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
