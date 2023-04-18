@@ -1,21 +1,25 @@
 {
-    "name": "librarianphp/command-help",
+    "name": "librarianphp/command-build",
     "type": "library",
-    "description": "Librarian's built-in help command",
+    "description": "Librarian's static build command",
     "license": "MIT",
-    "homepage": "https://github.com/librarianphp/command-demo",
+    "homepage": "https://github.com/librarianphp/command-build",
     "keywords": ["cli","command-line", "markdown"],
     "autoload": {
         "psr-4": {
-            "librarianphp\\": "Command/"
+            "librarianphp\\": "Command/",
+            "Librarian\\Builder\\": "src/"
         }
     },
     "require": {
-        "minicli/minicli": "^3.2"
+        "minicli/minicli": "^3.2",
+        "librarianphp/librarian-core": "^3.0",
+        "suin/php-rss-writer": "^1.6"
     },
     "require-dev": {
         "pestphp/pest": "^2.4",
-        "friendsofphp/php-cs-fixer": "^3.16"
+        "friendsofphp/php-cs-fixer": "^3.16",
+        "mockery/mockery": "^1.5"
     },
     "scripts": {
         "test" : ["pest"],

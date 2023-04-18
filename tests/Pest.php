@@ -24,6 +24,10 @@
 |
 */
 
+use Librarian\Builder\StaticBuilder;
+use Librarian\Provider\ContentServiceProvider;
+use Librarian\Provider\LibrarianServiceProvider;
+use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 
 expect()->extend('toBeOne', function () {
@@ -41,12 +45,44 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function getMinicli()
+function getLibrarian(): App
 {
-    return new App([
+    $app = new App(getDefaultAppConfig());
+
+    $builder = Mockery::mock(StaticBuilder::class);
+    $builder->shouldReceive('load');
+    $builder->shouldReceive('cleanup');
+    $builder->shouldReceive('copyPublicResources');
+    $builder->shouldReceive('buildPaginatedIndex');
+    $builder->shouldReceive('buildPaginatedTagPage');
+    $builder->shouldReceive('buildContentType');
+    $builder->shouldReceive('getListingPage');
+    $builder->shouldReceive('getSinglePage');
+    $builder->shouldReceive('buildRssFeed');
+
+    $app->addService('builder', $builder);
+    $app->addService('twig', new TwigServiceProvider());
+    $app->addService('librarian', new LibrarianServiceProvider());
+    $app->addService('content', new ContentServiceProvider());
+
+    $app->librarian->boot();
+
+    return $app;
+}
+
+function getDefaultAppConfig(): array
+{
+    return [
         'app_path' => [
             __DIR__ . '/../Command'
         ],
-        'debug' => true
-    ]);
+        'data_path' => __DIR__ . '/Resources/data',
+        'cache_path' => __DIR__ . '/Resources/cache',
+        'templates_path' => __DIR__ . '/Resources/templates',
+        'debug' => true,
+        'output_path' => __DIR__ . '/Resources/output',
+        'assets_path' => __DIR__ . '/Resources/assets',
+        'posts_per_page' => 10
+    ];
 }
+
