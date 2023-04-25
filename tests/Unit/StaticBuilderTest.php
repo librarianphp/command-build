@@ -34,6 +34,15 @@ test('StaticBuilder builds paginated content types pages', function () {
         ->and(is_dir($builder->outputPath . '/posts/page'))->toBeTrue();
 });
 
+test('StaticBuilder builds custom index page', function () {
+    $app = getCustomIndexPageApp();
+    $app->builder->buildPaginatedIndex();
+    expect(is_file($app->builder->outputPath . '/index.html'))->toBeTrue();
+
+    $content = file_get_contents($app->builder->outputPath . '/index.html');
+    expect($content)->toMatch("/template single/");
+});
+
 test('StaticBuilder builds paginated tag pages', function () {
     /** @var StaticBuilder $builder */
     $builder = $this->app->builder;

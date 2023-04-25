@@ -86,3 +86,18 @@ function getDefaultAppConfig(): array
     ];
 }
 
+function getCustomIndexPageApp(): App
+{
+    $config = getDefaultAppConfig();
+    $config['site_index'] = 'posts/test0';
+
+    $app = new App($config);
+    $app->addService('builder', new StaticBuilder());
+    $app->addService('twig', new TwigServiceProvider());
+    $app->addService('librarian', new LibrarianServiceProvider());
+    $app->addService('content', new ContentServiceProvider());
+    $app->librarian->boot();
+
+    return $app;
+}
+
