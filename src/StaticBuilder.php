@@ -61,10 +61,27 @@ class StaticBuilder implements ServiceInterface
             $this->saveFile($pageOutputDir . '/index.html', $this->getListingPage($i, $pages, $contentList));
         }
 
-        $pageOne = $this->outputPath . '/page/1/index.html';
-        if (is_file($pageOne)) {
-            copy($pageOne, $this->outputPath . '/index.html');
+        $indexPage = $this->getIndexPage();
+        $this->saveFile($this->outputPath . '/index.html', $indexPage);
+    }
+
+    public function getIndexPage(): string
+    {
+        $indexPage = null;
+
+        if ($this->siteConfig->site_index !== null) {
+            $page = $this->contentProvider->fetch($this->siteConfig->site_index);
+            $indexPage = $this->getSinglePage($page);
         }
+
+        if ($indexPage === null) {
+            $pageOne = $this->outputPath . '/page/1/index.html';
+            if (is_file($pageOne)) {
+                $indexPage = file_get_contents($this->outputPath . '/page/1/index.html');
+            }
+        }
+
+        return $indexPage;
     }
 
     public function buildPaginatedTagPage(string $tag): void

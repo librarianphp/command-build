@@ -17,21 +17,36 @@ beforeEach(function() {
     $this->app = $app;
 });
 
-test('StaticBuilder builds paginated index page', function () {
+test('StaticBuilder builds paginated index page with content listing', function () {
     /** @var StaticBuilder $builder */
     $builder = $this->app->builder;
     $builder->buildPaginatedIndex();
     expect(is_file($builder->outputPath . '/index.html'))->toBeTrue()
         ->and(is_dir($builder->outputPath . '/page'))->toBeTrue();
+
+    $content = file_get_contents($builder->outputPath . '/index.html');
+    expect($content)->toMatch("/template listing/");
 });
 
-test('StaticBuilder builds paginated content types pages', function () {
+test('StaticBuilder builds paginated content types pages and single pages', function () {
     /** @var StaticBuilder $builder */
     $builder = $this->app->builder;
     $builder->buildContentType('posts');
     expect(is_file($builder->outputPath . '/posts/index.html'))->toBeTrue()
         ->and(is_file($builder->outputPath . '/posts/test0/index.html'))->toBeTrue()
         ->and(is_dir($builder->outputPath . '/posts/page'))->toBeTrue();
+
+    $content = file_get_contents($builder->outputPath . '/posts/test0/index.html');
+    expect($content)->toMatch("/template single/");
+});
+
+test('StaticBuilder builds custom index page', function () {
+    $app = getCustomIndexPageApp();
+    $app->builder->buildPaginatedIndex();
+    expect(is_file($app->builder->outputPath . '/index.html'))->toBeTrue();
+
+    $content = file_get_contents($app->builder->outputPath . '/index.html');
+    expect($content)->toMatch("/template single/");
 });
 
 test('StaticBuilder builds paginated tag pages', function () {
@@ -55,3 +70,4 @@ test('StaticBuilder cleans up output dir', function () {
     $builder->cleanUp();
     expect(is_file($builder->outputPath . '/index.html'))->toBeFalse();
 });
+

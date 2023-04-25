@@ -3,6 +3,7 @@
 namespace librarianphp\Build;
 
 use Librarian\Builder\StaticBuilder;
+use Librarian\ContentType;
 use Librarian\Provider\ContentServiceProvider;
 use Minicli\Command\CommandController;
 
@@ -22,9 +23,10 @@ class DefaultController extends CommandController
 
         //Build content single pages
         $contentTypes = $content->getContentTypes();
+        /** @var ContentType $contentType */
         foreach ($contentTypes as $contentType) {
-            $this->getPrinter()->info("Building content type '$contentType'");
-            $builder->buildContentType($contentType);
+            $this->getPrinter()->info("Building content type '$contentType->slug'");
+            $builder->buildContentType($contentType->slug);
         }
 
         $this->getPrinter()->info("Building tag pages");
