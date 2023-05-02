@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c414842889f87f117032f5d62cf3b11",
+    "content-hash": "2b0784c366ff58f2c2666a792a283338",
     "packages": [
         {
             "name": "dflydev/dot-access-data",
@@ -271,25 +271,26 @@
         },
         {
             "name": "librarianphp/librarian-core",
-            "version": "3.1.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/librarianphp/librarian-core.git",
-                "reference": "d1c170f167b557a37e4f13d0b20b03f5417d51b6"
+                "reference": "fbbbfc45784b90f62d35876b0257bc59ef3725bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/librarianphp/librarian-core/zipball/d1c170f167b557a37e4f13d0b20b03f5417d51b6",
-                "reference": "d1c170f167b557a37e4f13d0b20b03f5417d51b6",
+                "url": "https://api.github.com/repos/librarianphp/librarian-core/zipball/fbbbfc45784b90f62d35876b0257bc59ef3725bf",
+                "reference": "fbbbfc45784b90f62d35876b0257bc59ef3725bf",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "librarianphp/parsed": "^0.3.0",
+                "librarianphp/parsed": "^1.0",
                 "minicli/curly": "^0.2.0",
                 "minicli/minicache": "^0.2.0",
-                "minicli/minicli": "^3.0",
+                "minicli/minicli": "^4.0",
+                "php": ">=8.1",
                 "twig/twig": "^3.0"
             },
             "require-dev": {
@@ -310,7 +311,7 @@
             "homepage": "https://github.com/librarianphp/librarian-core",
             "support": {
                 "issues": "https://github.com/librarianphp/librarian-core/issues",
-                "source": "https://github.com/librarianphp/librarian-core/tree/3.1.1"
+                "source": "https://github.com/librarianphp/librarian-core/tree/4.0.0"
             },
             "funding": [
                 {
@@ -318,31 +319,32 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-24T17:25:57+00:00"
+            "time": "2023-05-02T17:44:47+00:00"
         },
         {
             "name": "librarianphp/parsed",
-            "version": "0.3.7",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/librarianphp/parsed.git",
-                "reference": "a52d1abbde33d94e9a195eac0323743dccf9f8bd"
+                "reference": "6189514529375698b9fe3e6e9e9ac20a250e38dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/librarianphp/parsed/zipball/a52d1abbde33d94e9a195eac0323743dccf9f8bd",
-                "reference": "a52d1abbde33d94e9a195eac0323743dccf9f8bd",
+                "url": "https://api.github.com/repos/librarianphp/parsed/zipball/6189514529375698b9fe3e6e9e9ac20a250e38dc",
+                "reference": "6189514529375698b9fe3e6e9e9ac20a250e38dc",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
                 "league/commonmark": "^2.0",
-                "minicli/curly": "^0.2.0"
+                "minicli/curly": "^0.2.0",
+                "minicli/stencil": "^0.1.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "pestphp/pest": "^1.0"
+                "friendsofphp/php-cs-fixer": "^3.16",
+                "pestphp/pest": "^2.5"
             },
             "type": "library",
             "autoload": {
@@ -358,7 +360,7 @@
             "homepage": "https://github.com/librarianphp/parsed",
             "support": {
                 "issues": "https://github.com/librarianphp/parsed/issues",
-                "source": "https://github.com/librarianphp/parsed/tree/0.3.7"
+                "source": "https://github.com/librarianphp/parsed/tree/1.0.0"
             },
             "funding": [
                 {
@@ -366,7 +368,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-16T13:43:34+00:00"
+            "time": "2023-05-01T09:15:12+00:00"
         },
         {
             "name": "minicli/curly",
@@ -455,26 +457,25 @@
         },
         {
             "name": "minicli/minicli",
-            "version": "3.2.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/minicli/minicli.git",
-                "reference": "2d31b303461d0ec1f8c6d0be00f8b26be8766fbe"
+                "reference": "d3a83a3e7b31c1f0a200f1c19da9dd02b3a1fd85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minicli/minicli/zipball/2d31b303461d0ec1f8c6d0be00f8b26be8766fbe",
-                "reference": "2d31b303461d0ec1f8c6d0be00f8b26be8766fbe",
+                "url": "https://api.github.com/repos/minicli/minicli/zipball/d3a83a3e7b31c1f0a200f1c19da9dd02b3a1fd85",
+                "reference": "d3a83a3e7b31c1f0a200f1c19da9dd02b3a1fd85",
                 "shasum": ""
             },
             "require": {
                 "ext-readline": "*",
-                "php": ">=8"
+                "php": ">=8.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.5",
-                "pestphp/pest": "^1.0",
-                "phpunit/phpunit": "^9.0"
+                "pestphp/pest": "^2.5"
             },
             "type": "library",
             "autoload": {
@@ -494,7 +495,7 @@
             ],
             "support": {
                 "issues": "https://github.com/minicli/minicli/issues",
-                "source": "https://github.com/minicli/minicli/tree/3.2.1"
+                "source": "https://github.com/minicli/minicli/tree/4.0.0"
             },
             "funding": [
                 {
@@ -502,7 +503,51 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-23T09:04:22+00:00"
+            "time": "2023-04-30T08:19:16+00:00"
+        },
+        {
+            "name": "minicli/stencil",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/minicli/stencil.git",
+                "reference": "a328319f68229007b65d286ae2bd77cf2b7b9dca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/minicli/stencil/zipball/a328319f68229007b65d286ae2bd77cf2b7b9dca",
+                "reference": "a328319f68229007b65d286ae2bd77cf2b7b9dca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "pestphp/pest": "^1.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Minicli\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Dummy template generator",
+            "homepage": "https://github.com/minicli/stencil",
+            "keywords": [
+                "minicli",
+                "template"
+            ],
+            "support": {
+                "issues": "https://github.com/minicli/stencil/issues",
+                "source": "https://github.com/minicli/stencil/tree/0.1.1"
+            },
+            "time": "2022-06-21T08:51:47+00:00"
         },
         {
             "name": "nette/schema",
@@ -2367,16 +2412,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v2.5.3",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "9842e1051d77d3eb1c598dd459b1babfa73a04eb"
+                "reference": "a34767fa15abd098c763db605fd0fc72665b7f69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/9842e1051d77d3eb1c598dd459b1babfa73a04eb",
-                "reference": "9842e1051d77d3eb1c598dd459b1babfa73a04eb",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/a34767fa15abd098c763db605fd0fc72665b7f69",
+                "reference": "a34767fa15abd098c763db605fd0fc72665b7f69",
                 "shasum": ""
             },
             "require": {
@@ -2393,8 +2438,8 @@
                 "webmozart/assert": "<1.11.0"
             },
             "require-dev": {
-                "pestphp/pest-dev-tools": "^2.6.0",
-                "symfony/process": "^6.2.8"
+                "pestphp/pest-dev-tools": "^2.8.0",
+                "symfony/process": "^6.2.10"
             },
             "bin": [
                 "bin/pest"
@@ -2450,7 +2495,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.5.3"
+                "source": "https://github.com/pestphp/pest/tree/v2.6.0"
             },
             "funding": [
                 {
@@ -2462,7 +2507,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-22T22:14:57+00:00"
+            "time": "2023-05-01T23:51:14+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -2878,16 +2923,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.20.2",
+            "version": "1.20.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "90490bd8fd8530a272043c4950c180b6d0cf5f81"
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/90490bd8fd8530a272043c4950c180b6d0cf5f81",
-                "reference": "90490bd8fd8530a272043c4950c180b6d0cf5f81",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
                 "shasum": ""
             },
             "require": {
@@ -2917,9 +2962,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.2"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.4"
             },
-            "time": "2023-04-22T12:59:35+00:00"
+            "time": "2023-05-02T09:19:37+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3795,16 +3840,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "5.0.1",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "aae9a0a43bff37bd5d8d0311426c87bf36153f02"
+                "reference": "912dc2fbe3e3c1e7873313cc801b100b6c68c87b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/aae9a0a43bff37bd5d8d0311426c87bf36153f02",
-                "reference": "aae9a0a43bff37bd5d8d0311426c87bf36153f02",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/912dc2fbe3e3c1e7873313cc801b100b6c68c87b",
+                "reference": "912dc2fbe3e3c1e7873313cc801b100b6c68c87b",
                 "shasum": ""
             },
             "require": {
@@ -3850,7 +3895,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/diff/issues",
                 "security": "https://github.com/sebastianbergmann/diff/security/policy",
-                "source": "https://github.com/sebastianbergmann/diff/tree/5.0.1"
+                "source": "https://github.com/sebastianbergmann/diff/tree/5.0.3"
             },
             "funding": [
                 {
@@ -3858,7 +3903,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-23T05:12:41+00:00"
+            "time": "2023-05-01T07:48:21+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -4405,16 +4450,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.2.8",
+            "version": "v6.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "3582d68a64a86ec25240aaa521ec8bc2342b369b"
+                "reference": "12288d9f4500f84a4d02254d4aa968b15488476f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3582d68a64a86ec25240aaa521ec8bc2342b369b",
-                "reference": "3582d68a64a86ec25240aaa521ec8bc2342b369b",
+                "url": "https://api.github.com/repos/symfony/console/zipball/12288d9f4500f84a4d02254d4aa968b15488476f",
+                "reference": "12288d9f4500f84a4d02254d4aa968b15488476f",
                 "shasum": ""
             },
             "require": {
@@ -4481,7 +4526,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.2.8"
+                "source": "https://github.com/symfony/console/tree/v6.2.10"
             },
             "funding": [
                 {
@@ -4497,7 +4542,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-29T21:42:15+00:00"
+            "time": "2023-04-28T13:37:43+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4663,16 +4708,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.2.7",
+            "version": "v6.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "82b6c62b959f642d000456f08c6d219d749215b3"
+                "reference": "fd588debf7d1bc16a2c84b4b3b71145d9946b894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/82b6c62b959f642d000456f08c6d219d749215b3",
-                "reference": "82b6c62b959f642d000456f08c6d219d749215b3",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/fd588debf7d1bc16a2c84b4b3b71145d9946b894",
+                "reference": "fd588debf7d1bc16a2c84b4b3b71145d9946b894",
                 "shasum": ""
             },
             "require": {
@@ -4706,7 +4751,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.2.7"
+                "source": "https://github.com/symfony/filesystem/tree/v6.2.10"
             },
             "funding": [
                 {
@@ -4722,7 +4767,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-14T08:44:56+00:00"
+            "time": "2023-04-18T13:46:08+00:00"
         },
         {
             "name": "symfony/finder",
@@ -5101,16 +5146,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v6.2.8",
+            "version": "v6.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "75ed64103df4f6615e15a7fe38b8111099f47416"
+                "reference": "b34cdbc9c5e75d45a3703e63a48ad07aafa8bf2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/75ed64103df4f6615e15a7fe38b8111099f47416",
-                "reference": "75ed64103df4f6615e15a7fe38b8111099f47416",
+                "url": "https://api.github.com/repos/symfony/process/zipball/b34cdbc9c5e75d45a3703e63a48ad07aafa8bf2e",
+                "reference": "b34cdbc9c5e75d45a3703e63a48ad07aafa8bf2e",
                 "shasum": ""
             },
             "require": {
@@ -5142,7 +5187,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.2.8"
+                "source": "https://github.com/symfony/process/tree/v6.2.10"
             },
             "funding": [
                 {
@@ -5158,7 +5203,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-09T16:20:02+00:00"
+            "time": "2023-04-18T13:56:57+00:00"
         },
         {
             "name": "symfony/service-contracts",

@@ -12,8 +12,8 @@
         }
     },
     "require": {
-        "minicli/minicli": "^3.2",
-        "librarianphp/librarian-core": "^3.0",
+        "minicli/minicli": "^4.0",
+        "librarianphp/librarian-core": "^4.0",
         "suin/php-rss-writer": "^1.6"
     },
     "require-dev": {
