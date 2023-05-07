@@ -6,7 +6,7 @@ use Librarian\Provider\LibrarianServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 
-beforeEach(function() {
+beforeEach(function () {
     $app = new App(getDefaultAppConfig());
     $app->addService('builder', new StaticBuilder());
     $app->addService('twig', new TwigServiceProvider());
@@ -70,4 +70,3 @@ test('StaticBuilder cleans up output dir', function () {
     $builder->cleanUp();
     expect(is_file($builder->outputPath . '/index.html'))->toBeFalse();
 });
-

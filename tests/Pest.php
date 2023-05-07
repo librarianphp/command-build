@@ -101,4 +101,3 @@ function getCustomIndexPageApp(): App
 
     return $app;
 }
-
