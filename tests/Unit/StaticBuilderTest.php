@@ -46,7 +46,7 @@ test('StaticBuilder builds custom index page', function () {
     expect(is_file($app->builder->outputPath . '/index.html'))->toBeTrue();
 
     $content = file_get_contents($app->builder->outputPath . '/index.html');
-    expect($content)->toMatch("/template single/");
+    expect($content)->toMatch("/template index/");
 });
 
 test('StaticBuilder builds paginated tag pages', function () {
