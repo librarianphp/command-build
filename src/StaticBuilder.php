@@ -70,8 +70,11 @@ class StaticBuilder implements ServiceInterface
         $indexPage = null;
 
         if ($this->siteConfig->site_index !== null) {
+            $pageTpl = $this->siteConfig->site_index_tpl ?? 'content/single.html.twig';
             $page = $this->contentProvider->fetch($this->siteConfig->site_index);
-            $indexPage = $this->getSinglePage($page);
+            $indexPage =  $this->twigServiceProvider->render($pageTpl, [
+                'content' => $page,
+            ]);
         }
 
         if ($indexPage === null) {

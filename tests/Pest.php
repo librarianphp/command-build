@@ -90,6 +90,7 @@ function getCustomIndexPageApp(): App
 {
     $config = getDefaultAppConfig();
     $config['site_index'] = 'posts/test0';
+    $config['site_index_tpl'] = 'content/index.html.twig';
 
     $app = new App($config);
     $app->addService('builder', new StaticBuilder());
@@ -100,4 +101,3 @@ function getCustomIndexPageApp(): App
 
     return $app;
 }
-

@@ -6,7 +6,7 @@ use Librarian\Provider\LibrarianServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 
-beforeEach(function() {
+beforeEach(function () {
     $app = new App(getDefaultAppConfig());
     $app->addService('builder', new StaticBuilder());
     $app->addService('twig', new TwigServiceProvider());
@@ -46,7 +46,7 @@ test('StaticBuilder builds custom index page', function () {
     expect(is_file($app->builder->outputPath . '/index.html'))->toBeTrue();
 
     $content = file_get_contents($app->builder->outputPath . '/index.html');
-    expect($content)->toMatch("/template single/");
+    expect($content)->toMatch("/template index/");
 });
 
 test('StaticBuilder builds paginated tag pages', function () {
@@ -70,4 +70,3 @@ test('StaticBuilder cleans up output dir', function () {
     $builder->cleanUp();
     expect(is_file($builder->outputPath . '/index.html'))->toBeFalse();
 });
-
