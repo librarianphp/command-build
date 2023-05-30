@@ -17,34 +17,34 @@ class DefaultController extends CommandController
 
         /** @var StaticBuilder $builder */
         $builder = $this->getApp()->builder;
-        $this->getPrinter()->info("Starting Build", 1);
-        $this->getPrinter()->info("Cleaning up output dir...");
+        $this->info("Starting Build", true);
+        $this->info("Cleaning up output dir...");
         $builder->cleanUp();
 
         //Build content single pages
         $contentTypes = $content->getContentTypes();
         /** @var ContentType $contentType */
         foreach ($contentTypes as $contentType) {
-            $this->getPrinter()->info("Building content type '$contentType->slug'");
+            $this->info("Building content type '$contentType->slug'");
             $builder->buildContentType($contentType->slug);
         }
 
-        $this->getPrinter()->info("Building tag pages");
+        $this->info("Building tag pages");
         $tags = $content->fetchTagList();
         foreach ($tags as $tag => $articles) {
-            $this->getPrinter()->info("Building $tag pages...");
+            $this->info("Building $tag pages...");
             $builder->buildPaginatedTagPage(trim($tag));
         }
 
-        $this->getPrinter()->info("Building index");
+        $this->info("Building index");
         $builder->buildPaginatedIndex();
 
-        $this->getPrinter()->info("Copying Resources");
+        $this->info("Copying Resources");
         $builder->copyPublicResources();
 
-        $this->getPrinter()->info("Building RSS feed");
+        $this->info("Building RSS feed");
         $builder->buildRssFeed();
 
-        $this->getPrinter()->success("Finished building static website at $outputDir.");
+        $this->success("Finished building static website at $outputDir.");
     }
 }
