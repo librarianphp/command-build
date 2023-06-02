@@ -4,11 +4,21 @@ namespace librarianphp\Build;
 
 use Librarian\Builder\StaticBuilder;
 use Librarian\ContentType;
+use Librarian\Exception\ContentNotFoundException;
 use Librarian\Provider\ContentServiceProvider;
 use Minicli\Command\CommandController;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class DefaultController extends CommandController
 {
+    /**
+     * @throws ContentNotFoundException
+     * @throws RuntimeError
+     * @throws LoaderError
+     * @throws SyntaxError
+     */
     public function handle(): void
     {
         $outputDir = $this->getApp()->config->output_path;
@@ -26,7 +36,7 @@ class DefaultController extends CommandController
         /** @var ContentType $contentType */
         foreach ($contentTypes as $contentType) {
             $this->info("Building content type '$contentType->slug'");
-            $builder->buildContentType($contentType->slug);
+            $builder->buildContentType($contentType);
         }
 
         $this->info("Building tag pages");
