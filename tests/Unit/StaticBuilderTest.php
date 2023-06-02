@@ -31,7 +31,10 @@ test('StaticBuilder builds paginated index page with content listing', function 
 test('StaticBuilder builds paginated content types pages and single pages', function () {
     /** @var StaticBuilder $builder */
     $builder = $this->app->builder;
-    $builder->buildContentType('posts');
+    /** @var ContentServiceProvider $content */
+    $content = $this->app->content;
+    $builder->buildContentType($content->getContentType('posts'));
+
     expect(is_file($builder->outputPath . '/posts/index.html'))->toBeTrue()
         ->and(is_file($builder->outputPath . '/posts/test0/index.html'))->toBeTrue()
         ->and(is_dir($builder->outputPath . '/posts/page'))->toBeTrue();
