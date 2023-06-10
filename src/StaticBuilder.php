@@ -8,6 +8,7 @@ use Librarian\ContentCollection;
 use Librarian\ContentType;
 use Librarian\Exception\ContentNotFoundException;
 use Librarian\Provider\ContentServiceProvider;
+use Librarian\Provider\FeedServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 use Minicli\Config;
@@ -23,6 +24,7 @@ class StaticBuilder implements ServiceInterface
 {
     public Config $siteConfig;
     public ContentServiceProvider $contentProvider;
+    public FeedServiceProvider $feedProvider;
     public TwigServiceProvider $twigServiceProvider;
     public string $outputPath;
     public int $postsPerPage;
@@ -30,6 +32,7 @@ class StaticBuilder implements ServiceInterface
     public function load(App $app): void
     {
         $this->contentProvider = $app->content;
+        $this->feedProvider = $app->feed;
         $this->twigServiceProvider = $app->twig;
         $this->siteConfig = $app->config;
         $this->outputPath = $this->siteConfig->output_path;
@@ -204,37 +207,9 @@ class StaticBuilder implements ServiceInterface
 
     public function buildRssFeed(): void
     {
-        $feed = new Feed();
-        $channel = new Channel();
-        $channel
-            ->title($this->siteConfig->site_name)
-            ->description($this->siteConfig->site_description)
-            ->url($this->siteConfig->site_url)
-            ->feedUrl($this->siteConfig->site_url . '/feed.rss')
-            ->language('en-US')
-            ->copyright('Copyright ' . date('Y') . ', '. $this->siteConfig->site_name)
-            ->pubDate(strtotime(date('Y-m-d H:i:s')))
-            ->lastBuildDate(strtotime(date('Y-m-d H:i:s')))
-            ->ttl(60)
-            ->appendTo($feed);
+        $feed = $this->feedProvider->buildFeed(is_static: true);
+        $customFeedPath = $this->feedProvider->getCustomFeedPath(is_static: true);
 
-        $content_list = $this->contentProvider->fetchAll();
-
-        /** @var Content $content */
-        foreach ($content_list as $content) {
-            $item = new Item();
-            $item
-                ->title($content->frontMatterGet('title') ?? $content->default_title)
-                ->description('<div>'.($content->frontMatterGet('description') ?? $content->description).'</div>')
-                ->contentEncoded('<div>'.($content->frontMatterGet('description') ?? '').'</div>')
-                ->url($this->siteConfig->site_url . '/' . $content->getLink())
-                ->author($this->siteConfig->site_author)
-                ->pubDate(strtotime($content->getDate()))
-                ->guid($this->siteConfig->site_url . '/' . $content->getLink(), true)
-                ->preferCdata(true) // By this, title and description become CDATA wrapped HTML.
-                ->appendTo($channel);
-        }
-
-        $this->saveFile($this->outputPath . '/feed.rss', $feed);
+        $this->saveFile($this->outputPath . $customFeedPath, $feed);
     }
 }
