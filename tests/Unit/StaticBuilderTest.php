@@ -2,16 +2,18 @@
 
 use Librarian\Builder\StaticBuilder;
 use Librarian\Provider\ContentServiceProvider;
+use Librarian\Provider\FeedServiceProvider;
 use Librarian\Provider\LibrarianServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
 
 beforeEach(function () {
     $app = new App(getDefaultAppConfig());
-    $app->addService('builder', new StaticBuilder());
     $app->addService('twig', new TwigServiceProvider());
     $app->addService('librarian', new LibrarianServiceProvider());
     $app->addService('content', new ContentServiceProvider());
+    $app->addService('feed', new FeedServiceProvider());
+    $app->addService('builder', new StaticBuilder());
 
     $app->librarian->boot();
     $this->app = $app;

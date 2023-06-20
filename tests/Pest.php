@@ -26,6 +26,7 @@
 
 use Librarian\Builder\StaticBuilder;
 use Librarian\Provider\ContentServiceProvider;
+use Librarian\Provider\FeedServiceProvider;
 use Librarian\Provider\LibrarianServiceProvider;
 use Librarian\Provider\TwigServiceProvider;
 use Minicli\App;
@@ -60,10 +61,11 @@ function getLibrarian(): App
     $builder->shouldReceive('getSinglePage');
     $builder->shouldReceive('buildRssFeed');
 
-    $app->addService('builder', $builder);
     $app->addService('twig', new TwigServiceProvider());
     $app->addService('librarian', new LibrarianServiceProvider());
     $app->addService('content', new ContentServiceProvider());
+    $app->addService('feed', new FeedServiceProvider());
+    $app->addService('builder', $builder);
 
     $app->librarian->boot();
 
@@ -93,10 +95,11 @@ function getCustomIndexPageApp(): App
     $config['site_index_tpl'] = 'content/index.html.twig';
 
     $app = new App($config);
-    $app->addService('builder', new StaticBuilder());
     $app->addService('twig', new TwigServiceProvider());
     $app->addService('librarian', new LibrarianServiceProvider());
     $app->addService('content', new ContentServiceProvider());
+    $app->addService('feed', new FeedServiceProvider());
+    $app->addService('builder', new StaticBuilder());
     $app->librarian->boot();
 
     return $app;
